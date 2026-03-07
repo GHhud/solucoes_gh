@@ -1,0 +1,149 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+
+@theme {
+    --font-montreal: "Instrument Sans", sans-serif;
+}
+
+:root {
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    background-color: #0A0A0F;
+    color: #F8FAFC;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Instrument Sans", sans-serif;
+    letter-spacing: -0.02em;
+}
+
+/* Custom scrollbar to match the premium feel */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0A0A0F;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e1e26;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2d2d3a;
+}
+
+/* 🧪 Efeito Liquid Glass (Vidro Líquido) */
+.btn-liquid {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.45) 0%, rgba(59, 130, 246, 0.45) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2), inset 0 2px 2px rgba(255, 255, 255, 0.4);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-liquid::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.8s ease;
+}
+
+.btn-liquid:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4), inset 0 2px 2px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-liquid:hover::after {
+    left: 100%;
+}
+
+.btn-liquid-secondary {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #F8FAFC;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-liquid-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ✨ Luzes Dinâmicas */
+@keyframes float-glow {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.15;
+    }
+
+    33% {
+        transform: translate(10%, -15%) scale(1.3);
+        opacity: 0.25;
+    }
+
+    66% {
+        transform: translate(-15%, 5%) scale(0.9);
+        opacity: 0.1;
+    }
+}
+
+@keyframes drift-glow {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.1;
+    }
+
+    50% {
+        transform: translate(-25%, 25%) scale(1.5);
+        opacity: 0.2;
+    }
+}
+
+.animate-float-glow {
+    animation: float-glow 20s ease-in-out infinite;
+}
+
+.animate-drift-glow {
+    animation: drift-glow 25s ease-in-out infinite alternate;
+}
