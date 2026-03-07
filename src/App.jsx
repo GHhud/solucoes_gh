@@ -29,7 +29,7 @@ const SERVICES = [
     problem: "Campanhas sem página otimizada perdem até 70% dos cliques.",
     forWho: "Infoprodutores, agências, empresas com campanhas ativas",
     implementation: "R$ 1.300",
-    monthly: "Sem mensalidade"
+    monthly: "R$ 200/mês"
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ const SERVICES = [
     problem: "Empresas sem site perdem credibilidade e oportunidades de negócio online.",
     forWho: "PMEs, startups, profissionais liberais",
     implementation: "R$ 3.000",
-    monthly: "R$ 200/mês"
+    monthly: "R$ 400/mês"
   },
   {
     id: 3,
@@ -53,7 +53,7 @@ const SERVICES = [
     problem: "Leads perdidos no WhatsApp, planilhas desorganizadas e falta de acompanhamento comercial.",
     forWho: "Equipes comerciais, clínicas, empresas de serviço",
     implementation: "R$ 3.000+",
-    monthly: "R$ 600/mês"
+    monthly: "R$ 400/mês"
   },
   {
     id: 4,
@@ -65,7 +65,7 @@ const SERVICES = [
     problem: "Falta de ferramentas focadas em necessidades específicas de micro-operações.",
     forWho: "Empreendedores digitais, pequenas operações",
     implementation: "R$ 6.000",
-    monthly: "R$ 1.800/mês"
+    monthly: "R$ 600/mês"
   },
   {
     id: 5,
@@ -77,7 +77,7 @@ const SERVICES = [
     problem: "Falta de visibilidade financeira e controle manual em planilhas.",
     forWho: "PMEs, freelancers, startups",
     implementation: "R$ 3.500+",
-    monthly: "R$ 700/mês"
+    monthly: "R$ 400/mês"
   },
   {
     id: 6,
@@ -89,7 +89,7 @@ const SERVICES = [
     problem: "Soluções genéricas não atendem processos únicos e complexos.",
     forWho: "Empresas com processos específicos, startups SaaS",
     implementation: "10k +",
-    monthly: "R$ 3.000/mês"
+    monthly: "R$ 1.000/mês"
   },
   {
     id: 7,
@@ -208,7 +208,7 @@ export default function App() {
     <div className="min-h-screen bg-[#0A0A0F] text-[#F8FAFC] font-sans selection:bg-[#8B5CF6] selection:text-white">
 
       {/* --- Navegação --- */}
-      <nav className={`fixed w-full z-40 transition-all duration-300 ${isScrolled ? 'bg-[#0A0A0F]/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed w-full z-40 transition-all duration-300 ${isScrolled ? 'bg-transparent py-4' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
             <img src="/logo.png" alt="Growth Hub Logo" className="h-16 w-auto" />
@@ -338,7 +338,9 @@ export default function App() {
 
                 <div className="space-y-3 mb-8 pt-6 border-t border-white/5">
                   <div className="flex justify-between items-center text-sm">
-                    <span className="text-[#94A3B8]">Implementação</span>
+                    <span className="text-[#94A3B8]">
+                      {service.monthly === "Sem mensalidade" ? "Preço Único" : "Implementação"}
+                    </span>
                     <span className="font-mono font-medium text-white">{service.implementation}</span>
                   </div>
                   <div className="flex justify-between items-center text-sm">
@@ -422,13 +424,21 @@ export default function App() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-white/5">
                   <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5">
-                    <span className="block text-sm text-[#94A3B8] mb-1">Taxa de Implementação</span>
+                    <span className="block text-sm text-[#94A3B8] mb-1">
+                      {selectedService.monthly === "Sem mensalidade" ? "Preço Único" : "Implementação"}
+                    </span>
                     <span className="text-xl font-mono font-bold text-white">{selectedService.implementation}</span>
                   </div>
                   <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5">
-                    <span className="block text-sm text-[#94A3B8] mb-1">Mensalidade Fixa</span>
+                    <span className="block text-sm text-[#94A3B8] mb-1">Mensalidade</span>
                     <span className="text-xl font-mono font-bold text-[#8B5CF6]">{selectedService.monthly}</span>
                   </div>
+                </div>
+
+                <div className="p-4 rounded-xl bg-[#8B5CF6]/5 border border-[#8B5CF6]/10 mt-4">
+                  <p className="text-xs text-[#94A3B8] leading-relaxed">
+                    * A mensalidade inclui o uso do sistema e alterações/modificações mapeadas anteriormente. Alterações extras são pagas à parte.
+                  </p>
                 </div>
               </div>
 
