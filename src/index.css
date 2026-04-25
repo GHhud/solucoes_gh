@@ -69,16 +69,17 @@ button {
     background: #2d2d3a;
 }
 
-/* Glassmorphism base (design-system: backdrop blur 10-20px, 1px rgba white 0.2) */
+/* Glassmorphism base (design-system: backdrop blur 10-20px, 1px rgba white 0.2)
+   Use background-color (not shorthand) so Tailwind utilities can override it. */
 .glass {
-    background: rgba(255, 255, 255, 0.04);
+    background-color: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(16px) saturate(140%);
     -webkit-backdrop-filter: blur(16px) saturate(140%);
     border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .glass-strong {
-    background: rgba(255, 255, 255, 0.06);
+    background-color: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(20px) saturate(160%);
     -webkit-backdrop-filter: blur(20px) saturate(160%);
     border: 1px solid rgba(255, 255, 255, 0.18);

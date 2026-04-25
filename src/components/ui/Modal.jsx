@@ -17,8 +17,8 @@ export default function Modal({ open, onClose, children, labelledBy }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 animate-fade-in" role="dialog" aria-modal="true" aria-labelledby={labelledBy}>
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} aria-hidden="true" />
-      <div className="relative glass-strong rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl animate-slide-up bg-[#0A0A0F]/90">
+      <div className="absolute inset-0 bg-black/85 backdrop-blur-md" onClick={onClose} aria-hidden="true" />
+      <div className="relative rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl animate-slide-up bg-[#0A0A0F] border border-white/15">
         <button
           onClick={onClose}
           aria-label="Fechar"
